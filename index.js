@@ -31,10 +31,6 @@ function getLatestBlock(){
   });
 };
 
-document.getElementById("exchange-address").addEventListener('input', ({ target: {value} }) => {
-
-});
-
 document.getElementById("transfer-amount").addEventListener('click', () => {
   getLatestBlock();
 });
