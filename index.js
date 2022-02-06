@@ -4,11 +4,9 @@ const port = 4000; //TODO: bootstrap port 4000 is "well known" peer...
 const server = `http://localhost:${port}`;
 const axios = require('axios');
 const ethers = require('ethers');
+require('dotenv').config();
 
-// copy-paste your URL from Alchemy
-const ALCHEMY_URL = "https://eth-mainnet.alchemyapi.io/v2/d55KVxvYTgHkcjrzn0DMfnUh7Q9Sc6IT";
-//const ALCHEMY_URL = "https://eth-rinkeby.alchemyapi.io/v2/_mbjGkZuVjRdK2jOsPjPUS01C8Htm4QL";
-
+const ALCHEMY_URL = process.env.RINKEBY_URL;
 
 var EC = require('elliptic').ec;
 var ec = new EC('secp256k1');
