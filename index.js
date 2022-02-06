@@ -24,7 +24,7 @@ function getLatestBlock(){
     id: 1,
     method: "eth_getBlockByNumber",
     params: [
-      "latest", // block 46147
+      "latest", 
       false  // retrieve the full transaction object in transactions array
     ]
   }).then((response) => {
@@ -34,23 +34,7 @@ function getLatestBlock(){
 };
 
 document.getElementById("exchange-address").addEventListener('input', ({ target: {value} }) => {
-  if(value === "") {
 
-    getLatestBlock();
-
-    return;
-  }
-  // fetch(`${server}/balance/${value}`).then((response) => {
-  //   return response.json();
-  // }).then(({ balance }) => {
-  //   document.getElementById("balance").innerHTML = balance;
-  // });
-  // fetch(`${server}/blocknum`).then((response) => {
-  //     return response.json();
-  //   }).then(({ blocknum }) => {
-  //     document.getElementById("blocknum").innerHTML = blocknum;
-  //   });
-  
 });
 
 document.getElementById("transfer-amount").addEventListener('click', () => {
