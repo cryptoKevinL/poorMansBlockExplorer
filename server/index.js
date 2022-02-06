@@ -54,7 +54,7 @@ app.get('/balance/:address', (req, res) => {
 });
 
 // GET block number
-app.get('/getLatestBlockNum', (req, res) => {
+app.get('/blocknum', (req, res) => {
   //const {address} = req.params;
   
   axios.post(ALCHEMY_URL, {
@@ -66,10 +66,10 @@ app.get('/getLatestBlockNum', (req, res) => {
       false  // retrieve the full transaction object in transactions array
     ]
   }).then((response) => {
-    let blockNum = BigInt(response.data.result.number).toString();
-    res.send( blockNum );
+    let blocknum = BigInt(response.data.result.number).toString();
+    res.send( { blocknum } );
     console.log(response.data.result);
-    console.log("Block Number: ", blockNum);
+    console.log("Block Number: ", blocknum);
   });
 });
 

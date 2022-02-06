@@ -13,7 +13,7 @@ const privateKey = key.getPrivate().toString('hex');
 
 document.getElementById("exchange-address").addEventListener('input', ({ target: {value} }) => {
   if(value === "") {
-    document.getElementById("balance").innerHTML = 0;
+    document.getElementById("blocknum").innerHTML = 0;
     return;
   }
 
@@ -22,10 +22,10 @@ document.getElementById("exchange-address").addEventListener('input', ({ target:
   // }).then(({ balance }) => {
   //   document.getElementById("balance").innerHTML = balance;
   // });
-  fetch(`${server}/getLatestBlockNum`).then((response) => {
+  fetch(`${server}/blocknum`).then((response) => {
       return response.json();
-    }).then(({ balance }) => {
-      document.getElementById("balance").innerHTML = balance;
+    }).then(({ blocknum }) => {
+      document.getElementById("blocknum").innerHTML = blocknum;
     });
   
 });
