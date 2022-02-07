@@ -35,7 +35,6 @@ function getLatestBlock(){
     // (C) GENERATE TABLE
     // (C1) CREATE EMPTY TABLE
     var table = document.createElement("table"), row, cellA, cellB;
-    //document.getElementById("demoA").appendChild(table);
     for (let i=0; i<transactions.length; i++){
       // (C2) ROWS & CELLS
       row = table.insertRow();
@@ -48,7 +47,10 @@ function getLatestBlock(){
     }
     
     //append the compiled table to the DOM
-    document.body.appendChild(table);
+    let removeOldData = document.getElementById("transactionTable").lastChild;
+    if(removeOldData)
+      document.getElementById("transactionTable").removeChild(removeOldData);
+    document.getElementById("transactionTable").appendChild(table);
     document.getElementById("blocknum").innerHTML = blocknum;
   });
 };
