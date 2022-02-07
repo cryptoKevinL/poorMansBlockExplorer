@@ -23,10 +23,32 @@ function getLatestBlock(){
     method: "eth_getBlockByNumber",
     params: [
       "latest", 
-      false  // retrieve the full transaction object in transactions array
+      true  // retrieve the full transaction object in transactions array
     ]
   }).then((response) => {
     let blocknum = BigInt(response.data.result.number).toString();
+    let transactions = response.data.result.transactions;
+
+    //let data = JSON.stringify(transactions);
+    console.table(transactions);
+   
+    // (C) GENERATE TABLE
+    // (C1) CREATE EMPTY TABLE
+    var table = document.createElement("table"), row, cellA, cellB;
+    //document.getElementById("demoA").appendChild(table);
+    for (let i=0; i<transactions.length; i++){
+      // (C2) ROWS & CELLS
+      row = table.insertRow();
+      cellA = row.insertCell();
+      cellB = row.insertCell();
+   
+      // (C3) KEY & VALUE
+      cellA.innerHTML = "From: ";
+      cellB.innerHTML = transactions[i].from;
+    }
+    
+    //append the compiled table to the DOM
+    document.body.appendChild(table);
     document.getElementById("blocknum").innerHTML = blocknum;
   });
 };
