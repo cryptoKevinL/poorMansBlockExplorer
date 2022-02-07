@@ -29,9 +29,9 @@ function getLatestBlock(){
    
       // (C3) KEY & VALUE
       cellA.innerHTML = "From: ";
-      cellB.innerHTML = transactions[i].from;
+      cellB.innerHTML = `<a href="https://rinkeby.etherscan.io/address/${transactions[i].from}">${transactions[i].from}</a>`;
       cellC.innerHTML = "To: ";
-      cellD.innerHTML = transactions[i].to;
+      cellD.innerHTML = `<a href="https://rinkeby.etherscan.io/address/${transactions[i].to}">${transactions[i].to}</a>`;
     }
     
     //append the compiled table to the DOM
