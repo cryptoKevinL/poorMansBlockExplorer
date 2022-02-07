@@ -26,12 +26,16 @@ function getLatestBlock(){
       cellB = row.insertCell();
       cellC = row.insertCell();
       cellD = row.insertCell();
-   
+      cellE = row.insertCell();
+      cellF = row.insertCell();
+
       // (C3) KEY & VALUE
       cellA.innerHTML = "From: ";
       cellB.innerHTML = `<a href="https://rinkeby.etherscan.io/address/${transactions[i].from}">${transactions[i].from}</a>`;
       cellC.innerHTML = "To: ";
       cellD.innerHTML = `<a href="https://rinkeby.etherscan.io/address/${transactions[i].to}">${transactions[i].to}</a>`;
+      cellE.innerHTML = "Value: ";
+      cellF.innerHTML = ethers.utils.formatEther(transactions[i].value) + " ETH";
     }
     
     //append the compiled table to the DOM
